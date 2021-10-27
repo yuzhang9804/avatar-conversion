@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@yuzhang9804/eslint-config-react",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
