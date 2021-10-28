@@ -8,7 +8,8 @@
   },
   "scripts": {
     "lint": "eslint \"**/*.{tsx,ts,js,json}\"",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "bugs": {
     "url": "https://github.com/yuzhang9804/React/issues"

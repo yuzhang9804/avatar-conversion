@@ -86,8 +86,6 @@ const App: FunctionComponent = () => {
 
   /** 切换图片位置 */
   const switchPosition = (position: Position) => {
-    console.log(targetImg, position)
-
     targetImg?.set(position)
     fabricCanvas.current?.requestRenderAll()
   }
@@ -120,6 +118,12 @@ const App: FunctionComponent = () => {
     })
   }
 
+  const handleRest = () => {
+    fabricCanvas.current?.remove(...fabricCanvas.current?.getObjects())
+    setOpacity(1)
+    setScale(1)
+  }
+
   return (
     <div className="w-screen h-screen py-30 flex flex-col justify-around">
       <input
@@ -129,6 +133,9 @@ const App: FunctionComponent = () => {
         accept="image/png, image/jpeg"
         onChange={async () => {
           setImgSrc(await getFile(inputRef.current))
+          if (inputRef.current) {
+            inputRef.current.value = ''
+          }
         }}
       />
 
@@ -247,7 +254,9 @@ const App: FunctionComponent = () => {
         <div className="btn" onClick={handleDownload}>
           生成
         </div>
-        <div className="btn">重置</div>
+        <div className="btn" onClick={handleRest}>
+          重置
+        </div>
       </div>
     </div>
   )
