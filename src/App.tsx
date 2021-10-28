@@ -122,6 +122,7 @@ const App: FunctionComponent = () => {
     fabricCanvas.current?.remove(...fabricCanvas.current?.getObjects())
     setOpacity(1)
     setScale(1)
+    fabricCanvas.current?.requestRenderAll()
   }
 
   return (
@@ -133,9 +134,6 @@ const App: FunctionComponent = () => {
         accept="image/png, image/jpeg"
         onChange={async () => {
           setImgSrc(await getFile(inputRef.current))
-          if (inputRef.current) {
-            inputRef.current.value = ''
-          }
         }}
       />
 
